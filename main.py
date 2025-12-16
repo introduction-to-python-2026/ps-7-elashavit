@@ -2,25 +2,24 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# -----------------------------
-# 1. Load dataset
-# -----------------------------
+"""
+ 1. Load dataset
+"""
 planets = sns.load_dataset("planets")
 features = ["mass", "distance", "orbital_period", "year"]
 data = planets[features].dropna()
 data = data[(data["mass"] > 0) & (data["distance"] > 0) & (data["orbital_period"] > 0)]
-
-# -----------------------------
-# 2. Set theme and colors
-# -----------------------------
+"""
+ 2. Set theme and colors
+"""
 plt.style.use('default')  # רקע לבן
 pink_green_cmap = sns.diverging_palette(300, 150, s=100, l=50, n=9, center="light", as_cmap=True)
 star_color = "yellow"  # צבע פנימי של כוכבים
 edge_color = "black"   # מסגרת הכוכבים
 
-# -----------------------------
+"""
 # 3. Histograms
-# -----------------------------
+"""
 plt.figure(figsize=(12, 8))
 for i, col in enumerate(["mass", "distance", "orbital_period"]):
     plt.subplot(2, 2, i+1)
@@ -37,9 +36,9 @@ plt.savefig("histograms.png", dpi=300, facecolor='white')
 plt.show()
 plt.close()
 
-# -----------------------------
-# 4. Scatter plot — Mass vs Distance
-# -----------------------------
+"""
+ 4. Scatter plot — Mass vs Distance
+"""
 plt.figure(figsize=(10, 6))
 plt.scatter(
     data['distance'],
@@ -61,10 +60,9 @@ plt.tight_layout()
 plt.savefig("scatter_mass_distance.png", dpi=300, facecolor='white')
 plt.show()
 plt.close()
-
-# -----------------------------
-# 5. Scatter plot — Orbital Period vs Mass
-# -----------------------------
+"""
+ 5. Scatter plot — Orbital Period vs Mass
+"""
 plt.figure(figsize=(10, 6))
 plt.scatter(
     data['orbital_period'],
@@ -87,9 +85,9 @@ plt.savefig("scatter_period_mass.png", dpi=300, facecolor='white')
 plt.show()
 plt.close()
 
-# -----------------------------
+"""
 # 6. Correlation Heatmap
-# -----------------------------
+"""
 plt.figure(figsize=(8,6))
 sns.heatmap(
     data.corr(),
