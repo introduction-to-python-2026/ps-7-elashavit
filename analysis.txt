@@ -1,11 +1,11 @@
-בשלב הראשון טענתי את מאגר הנתונים planets מספריית seaborn. בחרתי לעבוד עם המשתנים mass, distance, orbital_period ו-year. לאחר מכן ניקיתי את הנתונים והסרתי שורות עם ערכים חסרים או לא הגיוניים, כמו ערכים שהם אפס או שליליים.
+I chose the planets dataset from the seaborn library. This dataset contains information about discovered exoplanets, including their mass, distance from their star, orbital period, and discovery year. I chose this dataset because it relates to astronomy and contains numerical features that are suitable for correlation analysis and visualization.
 
-בשלב הבא הגדרתי עיצוב אחיד לגרפים, עם רקע לבן וצבעים קבועים כדי שיהיה קל להשוות בין הגרפים.
+First, I loaded the dataset and inspected its structure. I selected the features mass, distance, orbital_period, and year, since they describe important physical properties of the planets. I then cleaned the data by removing rows with missing values and filtering out non-positive values, which could distort the analysis.
 
-לאחר מכן יצרתי היסטוגרמות עבור המסה, המרחק ותקופת ההקפה. ההיסטוגרמות עוזרות להבין איך הערכים מתפלגים ואילו ערכים מופיעים הכי הרבה בנתונים.
+Next, I created histograms for mass, distance, and orbital_period. These plots helped me understand how each variable is distributed. Most of the values are concentrated at lower ranges, while a small number of planets have very large values. This shows that the data is not evenly distributed.
 
-בהמשך יצרתי שני גרפי פיזור: אחד שמציג את הקשר בין מסה למרחק, והשני בין מסה לתקופת ההקפה. בגרפים האלו השתמשתי בסקאלה לוגריתמית, כי הערכים מאוד גדולים והסקאלה הרגילה לא הייתה ברורה.
+After that, I created scatter plots to examine relationships between variables. I plotted mass versus distance and mass versus orbital period. I used a logarithmic scale on both axes because the values span a very large range. This made the plots easier to read and helped reveal overall patterns in the data.
 
-לבסוף יצרתי מפת חום של הקורלציה בין המשתנים. מפת החום מראה את הקשרים בין המשתנים ואת החוזק שלהם.
+Finally, I calculated the correlation matrix and created a correlation heatmap. The heatmap shows a clear positive correlation between distance and orbital period, meaning that planets that are farther away from their star tend to have longer orbital periods. This result matches what is expected based on basic astronomical principles. The correlation between mass and the other variables is weaker, suggesting that planet mass is not strongly related to distance or orbital period in this dataset.
 
-מהתוצאות ניתן לראות שרוב כוכבי הלכת נמצאים בערכים נמוכים של מסה, מרחק ותקופת הקפה, ורק מעט כוכבי לכת עם ערכים גבוהים מאוד. בנוסף, ניתן לראות קשר חיובי בין המרחק לבין תקופת ההקפה, כלומר שכוכבי לכת רחוקים יותר מקיפים את הכוכב שלהם בזמן ארוך יותר. הקשר בין המסה לשאר המשתנים חלש יותר.
+Overall, the visualizations helped identify patterns and relationships that are not obvious from the raw data alone, and the correlation plot was especially useful for comparing all variables at once.
